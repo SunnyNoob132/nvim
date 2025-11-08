@@ -1,7 +1,4 @@
 return {
-    "tpope/vim-fugitive",
-    "sindrets/diffview.nvim",
-
     {
         "lewis6991/gitsigns.nvim",
 
@@ -9,5 +6,14 @@ return {
             signcolumn = true,
             current_line_blame = true
         }
+    },
+    {
+        "NeogitOrg/neogit",
+
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+            "nvim-telescope/telescope.nvim"
+        },
     }
 }
