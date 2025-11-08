@@ -7,7 +7,7 @@ return {
 
         config = function()
             require("catppuccin").setup {
-                auto_integrations = false
+                auto_integrations = true
             }
 
             vim.cmd.colorscheme "catppuccin"
