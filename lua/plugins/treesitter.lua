@@ -19,39 +19,6 @@ return {
         }
     },
     {
-        'stevearc/conform.nvim',
-        opts = {
-            formatters_by_ft = {
-                lua = { "stylua" }
-            },
-
-            format_on_save = {
-                timeout_ms = 500,
-                lsp_format = "fallback"
-            }
-        }
-    },
-    {
-        "windwp/nvim-autopairs",
-
-        opts = {
-            enable_close_on_slash = true
-        }
-    },
-    {
-        "windwp/nvim-ts-autotag",
-        opts = {}
-    },
-    {
-        "kylechui/nvim-surround",
-        event = "VeryLazy",
-        opts = {}
-    },
-    {
-        "numToStr/Comment.nvim",
-        opts = {}
-    },
-    {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
 

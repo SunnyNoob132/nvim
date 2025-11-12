@@ -34,7 +34,7 @@ return {
     },
     {
         "folke/trouble.nvim",
-        opts = {}, -- for default options, refer to the configuration section for custom setup.
+        opts = {},
         cmd = "Trouble",
 
         keys = {
@@ -98,7 +98,7 @@ return {
         event = { "BufReadPre", "BufNewFile" },
 
         config = function()
-            local lint = require("lint")
+            local lint = require "lint"
 
             lint.linters_by_ft = {
                 lua = { "luacheck" }
@@ -110,5 +110,18 @@ return {
                 end
             })
         end
+    },
+    {
+        "stevearc/conform.nvim",
+        opts = {
+            formatters_by_ft = {
+                lua = { "stylua" }
+            },
+
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_format = "fallback"
+            }
+        }
     }
 }
