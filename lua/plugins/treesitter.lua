@@ -19,14 +19,6 @@ return {
         }
     },
     {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-
-        ---@module "ibl"
-        ---@type ibl.config
-        opts = {}
-    },
-    {
         "HiPhish/rainbow-delimiters.nvim",
 
         config = function()
@@ -65,5 +57,13 @@ return {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {}
+    },
+    {
+        "brenoprata10/nvim-highlight-colors",
+        opts = {
+            render = "virtual",
+            virtual_symbol = "󱓻",
+            enable_tailwind = true
+        }
     }
 }
