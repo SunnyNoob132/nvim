@@ -5,9 +5,9 @@ return {
 
         opts = {
             library = {
-                { path = "${3rd}/luv/library", words = { "vim%.uv" } }
-            }
-        }
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+            },
+        },
     },
     {
         "saghen/blink.cmp",
@@ -24,8 +24,8 @@ return {
                         name = "LazyDev",
                         module = "lazydev.integrations.blink",
                         score_offset = 100,
-                    }
-                }
+                    },
+                },
             },
 
             list = { selection = { preselect = true, auto_insert = false } },
@@ -44,8 +44,8 @@ return {
                     end,
 
                     "snippet_forward",
-                    "fallback"
-                }
+                    "fallback",
+                },
             },
 
             signature = { enabled = true },
@@ -62,7 +62,9 @@ return {
                                     -- if LSP source, check for color derived from documentation
                                     if ctx.item.source_name == "LSP" then
                                         local color_item = require("nvim-highlight-colors").format(
-                                            ctx.item.documentation, { kind = ctx.kind })
+                                            ctx.item.documentation,
+                                            { kind = ctx.kind }
+                                        )
                                         if color_item and color_item.abbr ~= "" then
                                             icon = color_item.abbr
                                         end
@@ -76,18 +78,20 @@ return {
                                     -- if LSP source, check for color derived from documentation
                                     if ctx.item.source_name == "LSP" then
                                         local color_item = require("nvim-highlight-colors").format(
-                                            ctx.item.documentation, { kind = ctx.kind })
+                                            ctx.item.documentation,
+                                            { kind = ctx.kind }
+                                        )
                                         if color_item and color_item.abbr_hl_group then
                                             highlight = color_item.abbr_hl_group
                                         end
                                     end
                                     return highlight
-                                end
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+                                end,
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    },
 }

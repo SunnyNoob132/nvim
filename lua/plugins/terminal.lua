@@ -4,7 +4,7 @@ return {
         version = "*",
 
         opts = {
-            open_mapping = [[<D-\>]]
-        }
-    }
+            open_mapping = [[<D-\>]],
+        },
+    },
 }

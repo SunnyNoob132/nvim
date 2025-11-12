@@ -4,8 +4,8 @@ return {
 
         opts = {
             signcolumn = true,
-            current_line_blame = true
-        }
+            current_line_blame = true,
+        },
     },
     {
         "NeogitOrg/neogit",
@@ -13,7 +13,7 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "sindrets/diffview.nvim",
-            "nvim-telescope/telescope.nvim"
+            "nvim-telescope/telescope.nvim",
         },
-    }
+    },
 }

@@ -7,8 +7,8 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "MunifTanjim/nui.nvim",
-            "nvim-tree/nvim-web-devicons"
-        }
+            "nvim-tree/nvim-web-devicons",
+        },
     },
     {
         "nvim-lualine/lualine.nvim",
@@ -18,7 +18,7 @@ return {
             options = {
                 theme = "catppuccin",
                 component_separators = "",
-                section_separators = { left = "", right = "" }
+                section_separators = { left = "", right = "" },
             },
 
             sections = {
@@ -28,7 +28,7 @@ return {
                 lualine_c = {
                     {
                         "diagnostics",
-                        symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " }
+                        symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " },
                     },
                 },
 
@@ -51,23 +51,23 @@ return {
 
             tabline = {},
             extensions = { "neo-tree" },
-        }
+        },
     },
     {
         "akinsho/bufferline.nvim",
         version = "*",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            local mocha = require("catppuccin.palettes").get_palette "mocha"
+            local mocha = require("catppuccin.palettes").get_palette("mocha")
 
-            require("bufferline").setup {
-                highlights = require("catppuccin.special.bufferline").get_theme {
+            require("bufferline").setup({
+                highlights = require("catppuccin.special.bufferline").get_theme({
                     custom = {
                         all = {
-                            fill = { bg = mocha.mantle }
-                        }
-                    }
-                },
+                            fill = { bg = mocha.mantle },
+                        },
+                    },
+                }),
 
                 options = {
                     indicator = { style = "underline" },
@@ -83,18 +83,18 @@ return {
                             filetype = "neo-tree",
                             text = "File Explorer",
                             text_align = "center",
-                            separator = true
-                        }
+                            separator = true,
+                        },
                     },
 
                     hover = {
                         enabled = true,
                         delay = 200,
-                        reveal = { "close" }
-                    }
-                }
-            }
-        end
+                        reveal = { "close" },
+                    },
+                },
+            })
+        end,
     },
     {
         "folke/noice.nvim",
@@ -113,8 +113,8 @@ return {
                 command_palette = true,
                 long_message_to_split = true,
                 inc_rename = false,
-                lsp_doc_border = false
-            }
+                lsp_doc_border = false,
+            },
         },
 
         dependencies = {
@@ -124,9 +124,9 @@ return {
 
                 opts = {
                     stages = "fade",
-                }
-            }
-        }
+                },
+            },
+        },
     },
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -134,6 +134,6 @@ return {
 
         ---@module "ibl"
         ---@type ibl.config
-        opts = {}
+        opts = {},
     },
 }

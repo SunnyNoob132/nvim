@@ -13,10 +13,10 @@ return {
 
                 opts = {
                     ensure_installed = { "lua" },
-                    auto_install = true
-                }
-            }
-        }
+                    auto_install = true,
+                },
+            },
+        },
     },
     {
         "HiPhish/rainbow-delimiters.nvim",
@@ -29,13 +29,13 @@ return {
                 "RainbowOrange",
                 "RainbowGreen",
                 "RainbowViolet",
-                "RainbowCyan"
+                "RainbowCyan",
             }
 
             ---@type rainbow_delimiters.config
             vim.g.rainbow_delimiters = { highlight = highlight }
 
-            local hooks = require "ibl.hooks"
+            local hooks = require("ibl.hooks")
 
             hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
                 vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
@@ -48,22 +48,22 @@ return {
             end)
 
             vim.g.rainbow_delimiters = { highlight = highlight }
-            require("ibl").setup { scope = { highlight = highlight } }
+            require("ibl").setup({ scope = { highlight = highlight } })
 
             hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-        end
+        end,
     },
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {}
+        opts = {},
     },
     {
         "brenoprata10/nvim-highlight-colors",
         opts = {
             render = "virtual",
             virtual_symbol = "󱓻",
-            enable_tailwind = true
-        }
-    }
+            enable_tailwind = true,
+        },
+    },
 }

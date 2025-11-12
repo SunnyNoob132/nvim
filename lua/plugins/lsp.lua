@@ -2,35 +2,44 @@ return {
     {
         "mason-org/mason-lspconfig.nvim",
         opts = {
-            ensure_installed = { "lua_ls" },
+            ensure_installed = {
+                -- LSP servers
+                "lua_ls",
+
+                -- Linters
+                "luacheck",
+
+                -- Formatters
+                "stylua",
+            },
 
             servers = {
                 lua_ls = {
-                    single_file_support = true
-                }
+                    single_file_support = true,
+                },
             },
 
             notifications = {
                 window = {
-                    avoid = { "neo-tree" }
-                }
-            }
+                    avoid = { "neo-tree" },
+                },
+            },
         },
 
         dependencies = {
             {
                 "mason-org/mason.nvim",
-                opts = {}
+                opts = {},
             },
 
-            "neovim/nvim-lspconfig"
-        }
+            "neovim/nvim-lspconfig",
+        },
     },
     {
         {
             "j-hui/fidget.nvim",
-            opts = {}
-        }
+            opts = {},
+        },
     },
     {
         "folke/trouble.nvim",
@@ -76,21 +85,21 @@ return {
         priority = 1000,
 
         config = function()
-            require("tiny-inline-diagnostic").setup {
+            require("tiny-inline-diagnostic").setup({
                 preset = "modern",
 
                 options = {
                     show_source = { enabled = true },
                     enable_on_insert = true,
-                    enable_on_select = true
+                    enable_on_select = true,
                 },
 
                 signs = {
-                    diag = " "
-                }
-            }
+                    diag = " ",
+                },
+            })
 
-            vim.diagnostic.config { virtual_text = false }
+            vim.diagnostic.config({ virtual_text = false })
         end,
     },
     {
@@ -98,30 +107,30 @@ return {
         event = { "BufReadPre", "BufNewFile" },
 
         config = function()
-            local lint = require "lint"
+            local lint = require("lint")
 
             lint.linters_by_ft = {
-                lua = { "luacheck" }
+                lua = { "luacheck" },
             }
 
             vim.api.nvim_create_autocmd({ "BufWritePost" }, {
                 callback = function()
                     lint.try_lint()
-                end
+                end,
             })
-        end
+        end,
     },
     {
         "stevearc/conform.nvim",
         opts = {
             formatters_by_ft = {
-                lua = { "stylua" }
+                lua = { "stylua" },
             },
 
             format_on_save = {
                 timeout_ms = 500,
-                lsp_format = "fallback"
-            }
-        }
-    }
+                lsp_format = "fallback",
+            },
+        },
+    },
 }
