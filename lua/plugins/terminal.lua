@@ -7,4 +7,8 @@ return {
             open_mapping = [[<D-\>]],
         },
     },
+    {
+        "isak102/ghostty.nvim",
+        opts = {},
+    },
 }
