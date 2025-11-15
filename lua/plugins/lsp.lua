@@ -36,12 +36,6 @@ return {
         },
     },
     {
-        {
-            "j-hui/fidget.nvim",
-            opts = {},
-        },
-    },
-    {
         "folke/trouble.nvim",
         opts = {},
         cmd = "Trouble",

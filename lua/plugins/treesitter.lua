@@ -66,4 +66,6 @@ return {
             enable_tailwind = true,
         },
     },
+
+    "RRethy/vim-illuminate",
 }

@@ -97,38 +97,6 @@ return {
         end,
     },
     {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-
-        opts = {
-            lsp = {
-                override = {
-                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                    ["vim.lsp.util.stylize_markdown"] = true,
-                },
-            },
-
-            presets = {
-                bottom_search = true,
-                command_palette = true,
-                long_message_to_split = true,
-                inc_rename = false,
-                lsp_doc_border = false,
-            },
-        },
-
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            {
-                "rcarriga/nvim-notify",
-
-                opts = {
-                    stages = "fade",
-                },
-            },
-        },
-    },
-    {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
 
@@ -149,6 +117,30 @@ return {
             vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
             vim.keymap.set("n", "[;", dropbar_api.goto_context_start, { desc = "Go to start of current context" })
             vim.keymap.set("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
+        end,
+    },
+    {
+        "nvzone/menu",
+        keys = { "<RightMouse>" },
+
+        dependencies = {
+            {
+                "nvzone/volt",
+                lazy = true,
+            },
+        },
+
+        config = function()
+            vim.keymap.set({ "n", "v" }, "<RightMouse>", function()
+                require("menu.utils").delete_old_menus()
+
+                vim.cmd.exec('"normal! \\<RightMouse>"')
+
+                local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
+                local options = vim.bo[buf].ft == "neo-tree" and "neo-tree" or "default"
+
+                require("menu").open(options, { mouse = true })
+            end, {})
         end,
     },
 }
