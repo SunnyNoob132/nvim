@@ -28,11 +28,6 @@ return {
                 },
             },
 
-            list = { selection = { preselect = true, auto_insert = false } },
-
-            documentation = { auto_show = false, auto_show_delay_ms = 500 },
-            ghost_text = { enabled = true },
-
             keymap = {
                 ["<Tab>"] = {
                     function(cmp)
@@ -51,6 +46,10 @@ return {
             signature = { enabled = true },
 
             completion = {
+                documentation = { auto_show = false, auto_show_delay_ms = 500 },
+                ghost_text = { enabled = true },
+                list = { selection = { preselect = true, auto_insert = false } },
+
                 menu = {
                     draw = {
                         components = {

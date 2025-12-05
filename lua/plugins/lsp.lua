@@ -3,19 +3,34 @@ return {
         "mason-org/mason-lspconfig.nvim",
         opts = {
             ensure_installed = {
-                -- LSP servers
-                "lua_ls",
+                -- Lua
+                "lua_ls", -- LSP
+                --"luacheck", --Linter
+                "stylua", -- Formatter
 
-                -- Linters
-                "luacheck",
+                -- Python
+                "pyright", -- LSP
+                "ruff", -- Linter + formatter
 
-                -- Formatters
-                "stylua",
+                -- Javascript + Typescript
+                "ts_ls", -- LSP
+                "biome", -- Linter + formatter
+
+                -- C/C++
+                "clangd", -- LSP + linter
+                -- "clang-format", -- Formatter
+
+                -- Shell
+                "bashls", -- LSP
+                -- "shfmt", -- Formatter
+                -- "shellcheck", -- Linter
             },
 
             servers = {
-                lua_ls = {
-                    single_file_support = true,
+                lua_ls = { single_file_support = true },
+
+                clangd = {
+                    cmd = { "clangd", "--background-index", "--clang-tidy" },
                 },
             },
 
@@ -105,6 +120,15 @@ return {
 
             lint.linters_by_ft = {
                 lua = { "luacheck" },
+                python = { "ruff" },
+                javascript = { "biomejs" },
+                typescript = { "biomejs" },
+                javascriptreact = { "biomejs" },
+                typescriptreact = { "biomejs" },
+                c = { "clangtidy" },
+                cpp = { "clangtidy" },
+                bash = { "shellcheck" },
+                zsh = { "shellcheck" },
             }
 
             vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -119,6 +143,15 @@ return {
         opts = {
             formatters_by_ft = {
                 lua = { "stylua" },
+                python = { "ruff_format" },
+                javascript = { "biome", "biome-organize-imports" },
+                typescript = { "biome", "biome-organize-imports" },
+                javascriptreact = { "biome", "biome-organize-imports" },
+                typescriptreact = { "biome", "biome-organize-imports" },
+                c = { "clang-format" },
+                cpp = { "clang-format" },
+                bash = { "shfmt" },
+                zsh = { "shfmt" },
             },
 
             format_on_save = {

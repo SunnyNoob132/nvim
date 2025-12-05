@@ -1,22 +1,32 @@
 return {
     {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        build = ":TSUpdate",
+        "nvim-treesitter/nvim-treesitter",
         lazy = false,
         branch = "main",
 
         dependencies = {
             {
-                "nvim-treesitter/nvim-treesitter",
+                "nvim-treesitter/nvim-treesitter-textobjects",
+                build = ":TSUpdate",
                 lazy = false,
                 branch = "main",
-
-                opts = {
-                    ensure_installed = { "lua" },
-                    auto_install = true,
-                },
             },
         },
+
+        config = function()
+            require("nvim-treesitter").install({
+                "lua",
+                "python",
+                "javascript",
+                "typescript",
+                "jsx",
+                "tsx",
+                "c",
+                "cpp",
+                "bash",
+                "zsh",
+            })
+        end,
     },
     {
         "HiPhish/rainbow-delimiters.nvim",
@@ -57,14 +67,6 @@ return {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
-    },
-    {
-        "brenoprata10/nvim-highlight-colors",
-        opts = {
-            render = "virtual",
-            virtual_symbol = "󱓻",
-            enable_tailwind = true,
-        },
     },
 
     "RRethy/vim-illuminate",

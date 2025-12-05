@@ -20,13 +20,13 @@ return {
             }
 
             theme.section.buttons.val = {
-                theme.button("l", "  Last session", ":lua require('persistence').load({ last = true })<CR>"),
                 theme.button("e", "󰝒  New file", ":ene <BAR> startinsert <CR>"),
+                theme.button("l", "  Last session", ":AutoSession restore<CR>"),
+                theme.button("r", "  Recent", ":Telescope oldfiles<CR>"),
                 theme.button("f", "󰥨  Find file", ":cd $HOME/Workspace | Telescope find_files<CR>"),
                 theme.button("w", "  Find word", ":Telescope live_grep<CR>"),
-                theme.button("r", "  Recent", ":Telescope oldfiles<CR>"),
                 theme.button("u", "  Update plugins", ":Lazy update<CR>"),
-                theme.button("s", "  Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+                theme.button("s", "  Settings", ":e $MYVIMRC | :cd %:p:h | :Neotree show<CR>"),
                 theme.button("q", "  Quit", ":qa<CR>"),
             }
 
