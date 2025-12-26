@@ -9,6 +9,7 @@ opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:ver25-blinkon500-bl
 opt.ignorecase = true
 opt.mousemoveevent = true
 opt.number = true
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 opt.shiftwidth = 4
 opt.signcolumn = "yes"
 opt.smartcase = true

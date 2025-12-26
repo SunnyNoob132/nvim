@@ -1,29 +1,52 @@
 return {
     {
         "mason-org/mason-lspconfig.nvim",
+
         opts = {
             ensure_installed = {
                 -- Lua
-                "lua_ls", -- LSP
-                --"luacheck", --Linter
-                "stylua", -- Formatter
+                "lua_ls",
+                --"luacheck",
+                "stylua",
 
                 -- Python
-                "pyright", -- LSP
-                "ruff", -- Linter + formatter
+                "pyright",
+                "ruff",
 
                 -- Javascript + Typescript
-                "ts_ls", -- LSP
-                "biome", -- Linter + formatter
+                "ts_ls",
+                "biome",
 
                 -- C/C++
-                "clangd", -- LSP + linter
-                -- "clang-format", -- Formatter
+                "clangd",
+                -- "clang-format",
 
                 -- Shell
-                "bashls", -- LSP
-                -- "shfmt", -- Formatter
-                -- "shellcheck", -- Linter
+                "bashls",
+                -- "shfmt",
+                -- "shellcheck",
+
+                -- JSON
+                "jsonls",
+
+                -- YAML
+                "yamlls",
+                -- "yamlfmt",
+
+                -- TOML
+                "tombi",
+
+                -- HTML
+                "superhtml",
+                -- "htmlhint",
+
+                -- CSS
+                -- "stylelint",
+                "cssls",
+
+                -- Tailwind
+                "tailwindcss",
+                -- "rustywind",
             },
 
             servers = {
@@ -129,6 +152,11 @@ return {
                 cpp = { "clangtidy" },
                 bash = { "shellcheck" },
                 zsh = { "shellcheck" },
+                json = { "jsonlint" },
+                yaml = { "yamllint" },
+                toml = { "tombi" },
+                html = { "htmlhint" },
+                css = { "stylelint" },
             }
 
             vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -140,18 +168,24 @@ return {
     },
     {
         "stevearc/conform.nvim",
+
         opts = {
             formatters_by_ft = {
                 lua = { "stylua" },
                 python = { "ruff_format" },
                 javascript = { "biome", "biome-organize-imports" },
                 typescript = { "biome", "biome-organize-imports" },
-                javascriptreact = { "biome", "biome-organize-imports" },
-                typescriptreact = { "biome", "biome-organize-imports" },
+                javascriptreact = { "biome", "biome-organize-imports", "rustywind" },
+                typescriptreact = { "biome", "biome-organize-imports", "rustywind" },
                 c = { "clang-format" },
                 cpp = { "clang-format" },
                 bash = { "shfmt" },
                 zsh = { "shfmt" },
+                json = { "biome" },
+                yaml = { "yamlfmt" },
+                toml = { "tombi" },
+                html = { "biome", "rustywind" },
+                css = { "biome" },
             },
 
             format_on_save = {

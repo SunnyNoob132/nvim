@@ -1,6 +1,7 @@
 return {
     {
         "lewis6991/gitsigns.nvim",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
         opts = {
             signcolumn = true,
@@ -9,6 +10,7 @@ return {
     },
     {
         "NeogitOrg/neogit",
+        cmd = "Neogit",
 
         dependencies = {
             "nvim-lua/plenary.nvim",

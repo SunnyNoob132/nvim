@@ -13,6 +13,7 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
         opts = {
             options = {
@@ -57,6 +58,8 @@ return {
         "akinsho/bufferline.nvim",
         version = "*",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+
         config = function()
             local mocha = require("catppuccin.palettes").get_palette("mocha")
 
@@ -99,6 +102,7 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
         ---@module "ibl"
         ---@type ibl.config
@@ -106,6 +110,8 @@ return {
     },
     {
         "Bekaboo/dropbar.nvim",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+
         dependencies = {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",

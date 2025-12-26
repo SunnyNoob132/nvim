@@ -25,11 +25,19 @@ return {
                 "cpp",
                 "bash",
                 "zsh",
+                "json",
+                "yaml",
+                "toml",
+                "html",
+                "css",
+                "csv",
+                "regex",
             })
         end,
     },
     {
         "HiPhish/rainbow-delimiters.nvim",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
         config = function()
             local highlight = {
@@ -65,9 +73,12 @@ return {
     },
     {
         "folke/todo-comments.nvim",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {},
     },
-
-    "RRethy/vim-illuminate",
+    {
+        "RRethy/vim-illuminate",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    },
 }

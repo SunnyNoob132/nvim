@@ -1,6 +1,7 @@
 return {
     {
         "ggandor/leap.nvim",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
         config = function()
             local leap = require("leap")
@@ -56,6 +57,7 @@ return {
     },
     {
         "windwp/nvim-autopairs",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
         opts = {
             enable_close_on_slash = true,
@@ -63,6 +65,7 @@ return {
     },
     {
         "windwp/nvim-ts-autotag",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
         opts = {},
     },
     {
@@ -72,10 +75,18 @@ return {
     },
     {
         "numToStr/Comment.nvim",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
         opts = {},
     },
     {
         "monaqa/dial.nvim",
+
+        keys = {
+            "<C-a>",
+            "<C-x>",
+            "g<C-a>",
+            "g<C-x>",
+        },
 
         config = function()
             vim.keymap.set("n", "<C-a>", function()
@@ -106,6 +117,7 @@ return {
     },
     {
         "smjonas/inc-rename.nvim",
+        cmd = "Rename",
 
         opts = {
             cmd_name = "Rename",
@@ -113,6 +125,9 @@ return {
     },
     {
         "stevearc/overseer.nvim",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+        ---@module 'overseer'
+        ---@type overseer.SetupOpts
         opts = {},
     },
 }
