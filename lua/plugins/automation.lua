@@ -1,6 +1,7 @@
 return {
     {
-        "ggandor/leap.nvim",
+        "andyg/leap.nvim",
+        url = "https://codeberg.org/andyg/leap.nvim",
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
         config = function()
