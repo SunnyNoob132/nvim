@@ -8,6 +8,7 @@ return {
         config = function()
             require("catppuccin").setup({
                 auto_integrations = true,
+                no_italic = true,
             })
 
             vim.cmd.colorscheme("catppuccin")
