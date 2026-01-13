@@ -2,7 +2,7 @@ return {
     {
         "akinsho/toggleterm.nvim",
         cmd = "ToggleTerm",
-        keys = [[D-\]],
+        keys = [[<D-\>]],
         version = "*",
 
         opts = {
