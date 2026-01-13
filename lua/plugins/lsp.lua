@@ -159,6 +159,11 @@ return {
                 css = { "stylelint" },
             }
 
+            lint.linters.clangtidy.args = {
+                "-std=c++23",
+                "-I/usr/include/c++/v1",
+            }
+
             vim.api.nvim_create_autocmd({ "BufWritePost" }, {
                 callback = function()
                     lint.try_lint()
