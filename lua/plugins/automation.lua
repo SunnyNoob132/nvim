@@ -129,6 +129,14 @@ return {
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
         ---@module 'overseer'
         ---@type overseer.SetupOpts
-        opts = {},
+        opts = {
+            component_aliases = {
+                default = {
+                    "on_exit_set_status",
+                    { "on_complete_notify", statuses = { "FAILURE" }, system = "never" },
+                    "on_complete_dispose",
+                },
+            },
+        },
     },
 }

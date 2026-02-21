@@ -9,6 +9,79 @@ return {
             "MunifTanjim/nui.nvim",
             "nvim-tree/nvim-web-devicons",
         },
+
+        opts = {
+            filesystem = {
+                commands = {
+                    trash = function(state)
+                        local inputs = require("neo-tree.ui.inputs")
+                        local utils = require("neo-tree.utils")
+                        local node = state.tree:get_node()
+
+                        if not node then
+                            return
+                        end
+
+                        local path = node.path
+                        local _, name = utils.split_path(path)
+
+                        inputs.confirm(("Are you sure you want to trash '%s'?"):format(name), function(confirmed)
+                            if not confirmed then
+                                return
+                            end
+
+                            pcall(function()
+                                vim.fn.system({ "trash", vim.fn.fnameescape(path) })
+
+                                if vim.v.shell_error ~= 0 then
+                                    vim.notify("trash command failed...", vim.log.levels.ERROR, { title = "Neo-tree" })
+                                end
+                            end)
+
+                            require("neo-tree.sources.manager").refresh(state.name)
+                        end)
+                    end,
+
+                    trash_visual = function(state, selected_nodes)
+                        local inputs = require("neo-tree.ui.inputs")
+
+                        inputs.confirm(
+                            "Are you sure you want to trash " .. #selected_nodes .. " files?",
+                            function(confirmed)
+                                if not confirmed then
+                                    return
+                                end
+
+                                for _, node in ipairs(selected_nodes) do
+                                    pcall(function()
+                                        vim.fn.system({ "trash", node:get_id() })
+
+                                        if vim.v.shell_error ~= 0 then
+                                            vim.notify(
+                                                "trash command failed...",
+                                                vim.log.levels.ERROR,
+                                                { title = "Neo-tree" }
+                                            )
+                                        end
+                                    end)
+                                end
+
+                                require("neo-tree.sources.manager").refresh(state.name)
+                            end
+                        )
+                    end,
+                },
+
+                -- 2) Remap "d" to trash (and "D" for visual multi-trash)
+                window = {
+                    mappings = {
+                        ["d"] = "trash",
+                        ["D"] = "trash_visual",
+                        ["x"] = "delete",
+                    },
+                },
+            },
+        },
     },
     {
         "nvim-lualine/lualine.nvim",
