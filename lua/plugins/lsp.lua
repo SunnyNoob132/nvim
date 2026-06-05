@@ -56,6 +56,18 @@ return {
             },
         },
 
+        config = function(_, opts)
+            require("mason-lspconfig").setup(opts)
+
+            vim.api.nvim_create_autocmd("LspAttach", {
+                desc = "Disable native LSP document color highlighting",
+
+                callback = function(args)
+                    vim.lsp.document_color.enable(false, { bufnr = args.buf })
+                end,
+            })
+        end,
+
         dependencies = {
             {
                 "mason-org/mason.nvim",
