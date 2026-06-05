@@ -32,6 +32,7 @@ return {
                 "css",
                 "csv",
                 "regex",
+                "asm",
             })
         end,
     },

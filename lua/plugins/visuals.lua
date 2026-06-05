@@ -1,11 +1,14 @@
 return {
+    -- FIX: Changed to background as tailwindcss lsp keeps adding annoying colour highlights
+    -- Will be fixed in v2
+
     {
         "brenoprata10/nvim-highlight-colors",
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
         opts = {
-            render = "virtual",
-            virtual_symbol = "󱓻",
+            render = "background",
+            --virtual_symbol = "󱓻",
             enable_tailwind = true,
             exclude_filetypes = { "lazy" },
         },

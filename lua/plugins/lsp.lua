@@ -49,14 +49,6 @@ return {
                 -- "rustywind",
             },
 
-            servers = {
-                lua_ls = { single_file_support = true },
-
-                clangd = {
-                    cmd = { "clangd", "--background-index", "--clang-tidy" },
-                },
-            },
-
             notifications = {
                 window = {
                     avoid = { "neo-tree" },
