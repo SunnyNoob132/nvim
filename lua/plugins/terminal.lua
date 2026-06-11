@@ -7,6 +7,7 @@ return {
 
         opts = {
             open_mapping = [[<D-\>]],
+            size = 20,
         },
     },
 }
