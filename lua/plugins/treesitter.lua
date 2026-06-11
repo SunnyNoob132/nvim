@@ -33,6 +33,17 @@ return {
                 "csv",
                 "regex",
                 "asm",
+                "jsdoc",
+                "printf",
+            })
+
+            -- Fixes garbage treesitter-caused indentation in JSDoc
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = { "javascript", "javascriptreact" },
+
+                callback = function()
+                    vim.opt_local.indentexpr = ""
+                end,
             })
         end,
     },
