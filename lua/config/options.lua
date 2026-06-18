@@ -13,7 +13,6 @@ opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,te
 opt.shiftwidth = 4
 opt.signcolumn = "yes"
 opt.smartcase = true
-opt.smarttab = true
 opt.softtabstop = 2
 opt.smoothscroll = true
 opt.spell = true
