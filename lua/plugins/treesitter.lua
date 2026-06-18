@@ -43,8 +43,6 @@ return {
 
                 callback = function()
                     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-                    vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-                    vim.wo[0][0].foldmethod = "expr"
                 end,
             })
         end,
@@ -94,5 +92,32 @@ return {
     {
         "RRethy/vim-illuminate",
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    },
+    {
+        "chrisgrieser/nvim-origami",
+        event = "VeryLazy",
+        opts = {},
+
+        config = function(_, opts)
+            require("origami").setup(opts)
+
+            vim.keymap.set("n", "<Left>", function()
+                require("origami").h()
+            end)
+            vim.keymap.set("n", "<Right>", function()
+                require("origami").l()
+            end)
+            vim.keymap.set("n", "<Home>", function()
+                require("origami").caret()
+            end)
+            vim.keymap.set("n", "<End>", function()
+                require("origami").dollar()
+            end)
+        end,
+
+        init = function()
+            vim.opt.foldlevel = 99
+            vim.opt.foldlevelstart = 99
+        end,
     },
 }
