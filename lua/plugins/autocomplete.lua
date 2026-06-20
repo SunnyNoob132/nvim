@@ -14,17 +14,38 @@ return {
         version = "1.*",
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
-        dependencies = { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
+        dependencies = {
+            {
+                "L3MON4D3/LuaSnip",
+                version = "v2.*",
+                build = "make install_jsregexp",
+            },
+
+            "disrupted/blink-cmp-conventional-commits",
+        },
 
         opts = {
             sources = {
-                default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+                default = { "lazydev", "lsp", "path", "snippets", "buffer", "conventional_commits" },
 
                 providers = {
                     lazydev = {
                         name = "LazyDev",
                         module = "lazydev.integrations.blink",
                         score_offset = 100,
+                    },
+
+                    conventional_commits = {
+                        name = "Conventional Commits",
+                        module = "blink-cmp-conventional-commits",
+                        enabled = function()
+                            return vim.bo.filetype == "gitcommit"
+                        end,
+                        ---@module 'blink-cmp-conventional-commits'
+                        ---@type blink-cmp-conventional-commits.Options
+                        opts = {
+                            -- See Configuration section below for available options
+                        },
                     },
                 },
             },

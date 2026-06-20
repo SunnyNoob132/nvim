@@ -35,6 +35,7 @@ return {
                 "asm",
                 "jsdoc",
                 "printf",
+                "gitcommit",
             })
 
             -- Fixes garbage treesitter-caused indentation in JSDoc
