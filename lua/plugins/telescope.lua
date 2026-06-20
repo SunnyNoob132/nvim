@@ -17,8 +17,6 @@ return {
                     action = function(entry)
                         vim.print(entry)
                     end,
-
-                    include_body_and_footer = true,
                 },
             },
         },
@@ -41,7 +39,6 @@ return {
 
                         local opts = {
                             action = actions.prompt,
-                            include_body_and_footer = true,
                         }
 
                         picker(opts)
