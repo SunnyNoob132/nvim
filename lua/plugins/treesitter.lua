@@ -36,6 +36,10 @@ return {
                 "jsdoc",
                 "printf",
                 "gitcommit",
+                "vim",
+                "regex",
+                "markdown",
+                "markdown_inline",
             })
 
             -- Fixes garbage treesitter-caused indentation in JSDoc
