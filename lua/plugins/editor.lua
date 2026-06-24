@@ -11,6 +11,8 @@ return {
         },
 
         opts = {
+            close_if_last_window = true,
+
             filesystem = {
                 commands = {
                     trash = function(state)
@@ -129,7 +131,7 @@ return {
     {
         "akinsho/bufferline.nvim",
         version = "*",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = { "nvim-tree/nvim-web-devicons", { "nvim-mini/mini.bufremove", version = false } },
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
         config = function()
@@ -167,8 +169,27 @@ return {
                         delay = 200,
                         reveal = { "close" },
                     },
+
+                    close_command = function(bufnr)
+                        require("mini.bufremove").delete(bufnr, false)
+                    end,
                 },
             })
+
+            vim.keymap.set("n", "<D-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
+            vim.keymap.set("n", "<D-j>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+            vim.keymap.set("n", "<D-S-l>", "<cmd>BufferLineMoveNext<cr>", { desc = "Move Buffer Right" })
+            vim.keymap.set("n", "<D-S-j>", "<cmd>BufferLineMovePrev<cr>", { desc = "Move Buffer Left" })
+
+            vim.keymap.set(
+                "n",
+                "<D-k>",
+                "<cmd>lua require('mini.bufremove').delete(0, false)<cr>",
+                { desc = "Close Buffer" }
+            )
+
+            vim.keymap.set("n", "<leader>bp", "<cmd>BufferLinePick<cr>", { desc = "Buffer Pick" })
+            vim.keymap.set("n", "<leader>bc", "<cmd>BufferLinePickClose<cr>", { desc = "Buffer Pick Close" })
         end,
     },
     {
