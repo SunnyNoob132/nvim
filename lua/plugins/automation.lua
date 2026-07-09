@@ -53,6 +53,7 @@ return {
 
         opts = {
             enable_close_on_slash = true,
+            check_ts = true,
         },
     },
     {
