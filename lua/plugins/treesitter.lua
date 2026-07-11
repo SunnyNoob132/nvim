@@ -40,6 +40,7 @@ return {
                 "regex",
                 "markdown",
                 "markdown_inline",
+                "htmldjango",
             })
 
             -- Fixes garbage treesitter-caused indentation in JSDoc

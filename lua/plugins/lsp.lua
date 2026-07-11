@@ -47,6 +47,10 @@ return {
                 -- Tailwind
                 "tailwindcss",
                 -- "rustywind",
+
+                -- Django
+                "djls",
+                -- "djlint",
             },
 
             notifications = {
@@ -161,6 +165,7 @@ return {
                 toml = { "tombi" },
                 html = { "htmlhint" },
                 css = { "stylelint" },
+                htmldjango = { "djlint" },
             }
 
             lint.linters.clangtidy.args = {
@@ -195,6 +200,7 @@ return {
                 toml = { "tombi" },
                 html = { "biome", "rustywind" },
                 css = { "biome" },
+                htmldjango = { "djlint" },
             },
 
             format_on_save = {
