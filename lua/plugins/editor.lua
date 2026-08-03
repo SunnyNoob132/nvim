@@ -98,7 +98,19 @@ return {
 
             sections = {
                 lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
-                lualine_b = { "filename", "branch", "copilot" },
+
+                lualine_b = {
+                    "filename",
+                    "branch",
+                    {
+                        "copilot",
+                        show_colors = true,
+
+                        symbols = {
+                            spinners = "dots_negative",
+                        },
+                    },
+                },
 
                 lualine_c = {
                     {
