@@ -22,11 +22,12 @@ return {
             },
 
             "disrupted/blink-cmp-conventional-commits",
+            "fang2hou/blink-copilot",
         },
 
         opts = {
             sources = {
-                default = { "lazydev", "lsp", "path", "snippets", "buffer", "conventional_commits" },
+                default = { "lazydev", "lsp", "path", "snippets", "buffer", "conventional_commits", "copilot" },
 
                 providers = {
                     lazydev = {
@@ -46,6 +47,13 @@ return {
                         opts = {
                             -- See Configuration section below for available options
                         },
+                    },
+
+                    copilot = {
+                        name = "copilot",
+                        module = "blink-copilot",
+                        score_offset = 100,
+                        async = true,
                     },
                 },
             },

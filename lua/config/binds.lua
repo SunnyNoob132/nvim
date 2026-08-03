@@ -1,1 +1,5 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<D-Left>", "<C-w>h", { desc = "Focus left window" })
+vim.keymap.set("n", "<D-Down>", "<C-w>j", { desc = "Focus lower window" })
+vim.keymap.set("n", "<D-Up>", "<C-w>k", { desc = "Focus upper window" })
+vim.keymap.set("n", "<D-Right>", "<C-w>l", { desc = "Focus right window" })
