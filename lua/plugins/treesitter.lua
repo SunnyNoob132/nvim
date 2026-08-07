@@ -45,7 +45,7 @@ return {
 
             -- Fixes garbage treesitter-caused indentation in JSDoc
             vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "javascript", "javascriptreact", "python" },
+                pattern = { "javascript", "javascriptreact", "python", "c" },
 
                 callback = function()
                     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
