@@ -59,7 +59,13 @@ return {
     {
         "windwp/nvim-ts-autotag",
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-        opts = {},
+        opts = {
+            opts = { -- Bruh really? Who made this plugin lmao
+                enable_close = true,
+                enable_rename = true,
+                enable_close_on_slash = true,
+            },
+        },
     },
     {
         "kylechui/nvim-surround",

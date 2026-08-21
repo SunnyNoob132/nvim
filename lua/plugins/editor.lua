@@ -182,6 +182,32 @@ return {
                         reveal = { "close" },
                     },
 
+                    left_mouse_command = function(bufnr)
+                        local target_win = vim.api.nvim_get_current_win()
+
+                        -- Try current window
+                        if vim.wo[target_win].winfixbuf then
+                            local prev_win = vim.fn.win_getid(vim.fn.winnr("#"))
+
+                            -- Try previous window
+                            if prev_win ~= 0 and not vim.wo[prev_win].winfixbuf then
+                                target_win = prev_win
+                            else
+                                -- Just go with first non-fixed window in current tabpage
+                                for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+                                    if not vim.wo[win].winfixbuf then
+                                        target_win = win
+                                        break
+                                    end
+                                end
+                            end
+                        end
+
+                        -- Focus target window and attach the buffer via Neovim C-API
+                        vim.api.nvim_set_current_win(target_win)
+                        vim.api.nvim_win_set_buf(target_win, bufnr)
+                    end,
+
                     close_command = function(bufnr)
                         require("mini.bufremove").delete(bufnr, false)
                     end,
