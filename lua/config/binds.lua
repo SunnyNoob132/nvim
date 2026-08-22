@@ -33,3 +33,35 @@ end
 
 vim.keymap.set("i", "<Up>", smart_move("<Up>"), { expr = true })
 vim.keymap.set("i", "<Down>", smart_move("<Down>"), { expr = true })
+
+-- Auto indent on paste
+local function paste_with_auto_indent(put_cmd)
+    return function()
+        local register = vim.v.register
+        local count = vim.v.count1
+        local prefix = count > 1 and tostring(count) or ""
+
+        if register ~= nil and register ~= "" and register ~= '"' then
+            prefix = '"' .. register .. prefix
+        end
+
+        vim.cmd("normal! " .. prefix .. put_cmd)
+        local cursor_after_paste = vim.api.nvim_win_get_cursor(0)
+
+        local first_line = vim.fn.line("'[")
+        local last_line = vim.fn.line("']")
+
+        if first_line > 0 and last_line >= first_line then
+            vim.cmd(first_line .. "," .. last_line .. "normal! ==")
+        else
+            vim.cmd("normal! ==")
+        end
+
+        vim.api.nvim_win_set_cursor(0, cursor_after_paste)
+    end
+end
+
+vim.keymap.set("n", "p", paste_with_auto_indent("p"), { desc = "Paste and auto indent" })
+vim.keymap.set("n", "P", paste_with_auto_indent("P"), { desc = "Paste before and auto indent" })
+vim.keymap.set("n", "gp", paste_with_auto_indent("gp"), { desc = "Paste after cursor and auto indent" })
+vim.keymap.set("n", "gP", paste_with_auto_indent("gP"), { desc = "Paste before cursor and auto indent" })
