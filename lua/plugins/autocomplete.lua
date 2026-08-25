@@ -37,8 +37,7 @@ return {
                         enabled = function()
                             return vim.bo.filetype == "gitcommit"
                         end,
-                        ---@module 'blink-cmp-conventional-commits'
-                        ---@type blink-cmp-conventional-commits.Options
+
                         opts = {
                             -- See Configuration section below for available options
                         },

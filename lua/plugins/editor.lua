@@ -235,8 +235,6 @@ return {
         main = "ibl",
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 
-        ---@module "ibl"
-        ---@type ibl.config
         opts = {},
     },
     {

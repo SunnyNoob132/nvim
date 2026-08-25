@@ -2,7 +2,6 @@ return {
     {
         "folke/flash.nvim",
         event = "VeryLazy",
-        ---@type Flash.Config
         opts = {},
         keys = {
             {
@@ -125,8 +124,7 @@ return {
     {
         "stevearc/overseer.nvim",
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-        ---@module 'overseer'
-        ---@type overseer.SetupOpts
+
         opts = {
             component_aliases = {
                 default = {
