@@ -43,4 +43,18 @@ require("lazy").setup({
     defaults = {
         lazy = false,
     },
+
+    diff = {
+        cmd = "diffview.nvim",
+    },
+
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                "netrwPlugin",
+                "tohtml",
+                "tutor",
+            },
+        },
+    },
 })
