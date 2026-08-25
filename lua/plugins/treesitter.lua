@@ -102,10 +102,9 @@ return {
     {
         "chrisgrieser/nvim-origami",
         event = "VeryLazy",
-        opts = {},
 
-        config = function(_, opts)
-            require("origami").setup(opts)
+        config = function()
+            require("origami").setup()
 
             vim.keymap.set("n", "<Left>", function()
                 require("origami").h()

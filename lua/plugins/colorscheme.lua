@@ -5,12 +5,13 @@ return {
         lazy = false,
         priority = 1000,
 
-        config = function()
-            require("catppuccin").setup({
-                auto_integrations = true,
-                no_italic = true,
-            })
+        opts = {
+            auto_integrations = true,
+            no_italic = true,
+        },
 
+        config = function(_, opts)
+            require("catppuccin").setup(opts)
             vim.cmd.colorscheme("catppuccin")
         end,
     },
