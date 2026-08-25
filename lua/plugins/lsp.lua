@@ -53,7 +53,7 @@ return {
                 -- "djlint",
 
                 -- API
-                -- "spectral",
+                "spectral",
             },
 
             notifications = {
