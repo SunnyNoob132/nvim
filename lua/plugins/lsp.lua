@@ -51,6 +51,9 @@ return {
                 -- Django
                 "djls",
                 -- "djlint",
+
+                -- API
+                -- "spectral",
             },
 
             notifications = {
