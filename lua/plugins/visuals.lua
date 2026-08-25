@@ -10,12 +10,10 @@ return {
             exclude_filetypes = { "lazy" },
         },
     },
-
     {
         "nvzone/minty",
         cmd = { "Shades", "Huefy" },
     },
-
     {
         "3rd/image.nvim",
         build = false,

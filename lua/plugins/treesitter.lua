@@ -68,7 +68,6 @@ return {
                 "RainbowCyan",
             }
 
-            ---@type rainbow_delimiters.config
             vim.g.rainbow_delimiters = { highlight = highlight }
 
             local hooks = require("ibl.hooks")
