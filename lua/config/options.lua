@@ -18,7 +18,7 @@ vim.opt.termguicolors = true
 vim.opt.winborder = "rounded"
 vim.opt.fillchars:append({ eob = " " })
 
--- Custom status column in editors
+--[[ Custom status column in editors - broke a bunch of stuff unfortunately
 
 local blacklist = { "alpha", "neo-tree", "trouble", "qf", "lazy", "mason", "help", "noice", "toggleterm" }
 
@@ -31,3 +31,4 @@ vim.api.nvim_create_autocmd("FileType", {
         end
     end,
 })
+]]
