@@ -12,13 +12,14 @@ return {
 
         opts = {
             close_if_last_window = true,
-            use_libuv_file_watcher = true,
-
-            follow_current_file = {
-                enabled = true,
-            },
 
             filesystem = {
+                use_libuv_file_watcher = true,
+
+                follow_current_file = {
+                    enabled = true,
+                },
+
                 commands = {
                     trash = function(state)
                         local inputs = require("neo-tree.ui.inputs")
