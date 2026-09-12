@@ -50,6 +50,10 @@ return {
 
                 -- API
                 -- "spectral",
+
+                -- Flask
+                -- "djlint",
+                "jinja_lsp",
             },
 
             notifications = {
@@ -164,6 +168,7 @@ return {
                 toml = { "tombi" },
                 html = { "htmlhint" },
                 css = { "stylelint" },
+                jinja = { "djlint" },
             }
 
             lint.linters.clangtidy.args = {
@@ -198,6 +203,7 @@ return {
                 toml = { "tombi" },
                 html = { "biome", "rustywind" },
                 css = { "biome" },
+                jinja = { "djlint" },
             },
 
             format_on_save = {
