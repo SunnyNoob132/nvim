@@ -72,11 +72,6 @@ return {
         opts = {},
     },
     {
-        "numToStr/Comment.nvim",
-        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-        opts = {},
-    },
-    {
         "monaqa/dial.nvim",
 
         keys = {
