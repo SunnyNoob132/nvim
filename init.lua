@@ -1,5 +1,6 @@
 require("config.options")
 require("config.filetypes")
 require("config.binds")
-require("config.lazy")
+require("config.commands")
 require("config.macros")
+require("config.lazy")
