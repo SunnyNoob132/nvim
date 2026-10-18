@@ -35,7 +35,7 @@ return {
                 dynamic_root = true,
             })
 
-            vim.keymap.set("n", "<leader>lp", "<cmd>LivePreview toggle<CR>", { desc = "Toggle Live Preview" })
+            vim.keymap.set("n", "<leader>lp", "<cmd>LivePreview start<CR>", { desc = "Start live preview" })
         end,
     },
 }
