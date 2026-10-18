@@ -34,6 +34,8 @@ return {
             require("livepreview.config").set({
                 dynamic_root = true,
             })
+
+            vim.keymap.set("n", "<leader>lp", "<cmd>LivePreview toggle<CR>", { desc = "Toggle Live Preview" })
         end,
     },
 }
