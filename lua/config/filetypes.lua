@@ -18,3 +18,10 @@ vim.filetype.add({
         ab = "amber",
     },
 })
+
+-- Textual CSS
+vim.filetype.add({
+    extension = {
+        tcss = "css",
+    },
+})
